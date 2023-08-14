@@ -1,0 +1,11 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Resources:
+  simpleLambda: #name used in the SAM CLI
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: simple-lambda/
+      Handler: simple-lambda.handler # fileName/functionName
+      MemorySize: 16
+      Runtime: nodejs18.x
