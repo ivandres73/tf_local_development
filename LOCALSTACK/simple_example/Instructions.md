@@ -1,7 +1,7 @@
-# Run Task 1
+# Run
 
 ```
-cd ./task-1/
+cd simple_example/
 docker-compose up -d
 terraform init
 terraform apply -auto-approve
