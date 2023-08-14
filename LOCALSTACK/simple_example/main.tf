@@ -15,17 +15,7 @@ resource "aws_subnet" "my_subnet" {
   availability_zone = "us-east-1a"
 }
 
-resource "aws_network_interface" "my_net_interface" {
-  subnet_id   = aws_subnet.my_subnet.id
-  private_ips = ["172.16.10.100"]
-}
-
 resource "aws_instance" "my_instance" {
   ami           = "ami-08a52ddb321b32a8c" # Amazon Linux 2023
   instance_type = "t2.micro"
-
-  network_interface {
-    network_interface_id = aws_network_interface.my_net_interface.id
-    device_index         = 0
-  }
 }
