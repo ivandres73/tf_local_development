@@ -10,28 +10,6 @@ exports.handler = async (event) => {
   let slackBlocks;
   console.log(AlarmMessage);
 
-  const doubleLineSlackBigBlock = (title, message) => {
-    return {
-      blocks: [
-        {
-          type: 'section',
-          text: {
-            type: 'mrkdwn',
-            text: title,
-          },
-        },
-        {
-          type: 'section',
-          text: {
-            type: 'plain_text',
-            text: message,
-            emoji: true,
-          },
-        },
-      ],
-    };
-  };
-
   const singleLineSlackSmallBlock = (message) => {
     return {
       blocks: [
@@ -48,24 +26,16 @@ exports.handler = async (event) => {
 
   if (
     AlarmName ===
-    `MarbylBackendStack2_embeddingServiceCpuAlarm_${process.env.ENVIRONMENT}`
+    `ECS_Service_CPU_Alarm_${process.env.ENVIRONMENT}`
   ) {
-    message = `:chart_with_upwards_trend: *[ ${process.env.EMBEDDING_CPU_THRESHOLD}% ] High CPU Utilization of embedding container (ECS-${process.env.ENVIRONMENT})*`;
+    message = `:chart_with_upwards_trend: *[ ${process.env.EMBEDDING_CPU_THRESHOLD}% ] High CPU Utilization of container (ECS-${process.env.ENVIRONMENT})*`;
     slackBlocks = singleLineSlackSmallBlock(message);
   } else if (
     AlarmName ===
-    `MarbylBackendStack2_embeddingServiceMemoryAlarm_${process.env.ENVIRONMENT}`
+    `ECS_Service_Memory_Alarm_${process.env.ENVIRONMENT}`
   ) {
-    message = `:chart_with_upwards_trend: *[ ${process.env.EMBEDDING_MEMORY_THRESHOLD}% ] High Memory Utilization  of embedding container (ECS-${process.env.ENVIRONMENT})*`;
+    message = `:chart_with_upwards_trend: *[ ${process.env.EMBEDDING_MEMORY_THRESHOLD}% ] High Memory Utilization  of container (ECS-${process.env.ENVIRONMENT})*`;
     slackBlocks = singleLineSlackSmallBlock(message);
-  } else if (
-    AlarmName ===
-    `MarbylUserAppStack_BlockedIndexWritesES_${process.env.ENVIRONMENT}`
-  ) {
-    title = `:large_red_square: *Index writes blocked (ES-${process.env.ENVIRONMENT})*`;
-    message =
-      'While the alarm is active, items are not being updated nor indexed to ES';
-    slackBlocks = doubleLineSlackBigBlock(title, message);
   }
 
   if (AlarmStateValue === 'ALARM') {
