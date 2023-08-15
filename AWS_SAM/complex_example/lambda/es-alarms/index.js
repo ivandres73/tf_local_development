@@ -6,7 +6,6 @@ exports.handler = async (event) => {
   const AlarmStateValue = AlarmMessage.NewStateValue;
   const AlarmName = AlarmMessage.AlarmName;
   let message;
-  let title;
   let slackBlocks;
   console.log(AlarmMessage);
 
