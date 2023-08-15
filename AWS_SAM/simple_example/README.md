@@ -22,5 +22,5 @@ You can invoke a lambda locally using this command:
 
 3. Events are located in `./events/`; events are `.json` files.
 
-Example to invoke `simpleLambda` using a dummy payload (`events/simple-event.json`):
-    `sam local invoke -e events/simple-event.json simpleLambda`
+Example to invoke `complesLambda` using a dummy payload (`events/complex-event.json`):
+    `sam local invoke -e events/complex-event.json complexLambda`
