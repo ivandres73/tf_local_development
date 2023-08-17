@@ -5,10 +5,4 @@ services:
     container_name: "${LOCALSTACK_DOCKER_NAME-localstack_main}"
     image: localstack/localstack:2.2.0
     ports:
-      - "127.0.0.1:4566:4566"
-      - "127.0.0.1:4571:4571"
-    environment:
-      - SERVICES=ec2,sns,sqs,logs
-      - DEBUG=1
-      - DATA_DIR=./data
-      - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
+      - '4566:4566' # LocalStack endpoint
