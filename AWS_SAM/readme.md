@@ -51,8 +51,8 @@ We can simulate this situation by having the correct `json` event that is sent t
 
 Run:
 ```sh
-cd comples_example/
-sam local invoke -e ./events/comples-event.json complexLambda
+cd complex_example/
+sam local invoke -e ./events/complex-event.json complexLambda
 ```
 
 | Note: the lambda expects a value for `WEBHOOK_URL` env var. Define it yourself.
