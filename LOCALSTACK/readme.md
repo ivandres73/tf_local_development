@@ -27,7 +27,7 @@ terraform apply -auto-approve
 terraform show
 ```
 
-### How to run Complex examaple
+### How to run Complex example
 
 <img src="./complex_example/localstack_complex.jpg" width="250" height="200" alt="diagram">
 
