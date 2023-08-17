@@ -1,2 +1,7 @@
 image:
   file: .gitpod.Dockerfile
+
+
+tasks:
+  - name: Setup LocalStack
+    command: docker-compose -f LOCALSTACK/docker-compose.yml up -d 
