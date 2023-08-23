@@ -1,2 +1,13 @@
 image:
   file: .gitpod.Dockerfile
+
+
+tasks:
+  - name: Setup LocalStack
+    command: localstack start
+
+ports:
+  - name: LocalStack4566
+    port: 4566
+    onOpen: ignore
+    visibility: private
