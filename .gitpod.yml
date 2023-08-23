@@ -4,10 +4,10 @@ image:
 
 tasks:
   - name: Setup LocalStack
-    command: docker-compose -f LOCALSTACK/docker-compose.yml up -d 
+    command: localstack start
 
 ports:
   - name: LocalStack4566
     port: 4566
     onOpen: ignore
-    visibility: public
+    visibility: private
